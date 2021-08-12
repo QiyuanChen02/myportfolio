@@ -16,6 +16,7 @@ const Contact: React.FC<Props> = ({ modalActive, setModalActive }) => {
                     <h3>Let's Talk</h3>
                 </div>
                 <form action="https://formsubmit.co/d15cb9f833036aa19e3200df1c447db4" method="POST">
+                    <input type="hidden" name="_captcha" value="false" />
                     <div className="form-name">
                         <label htmlFor="name">Name *</label>
                         <input type="text" name="name" id="name" required />
@@ -33,7 +34,7 @@ const Contact: React.FC<Props> = ({ modalActive, setModalActive }) => {
                     </div>
                 </form>
             </section>
-            <div id="overlay" className={`${modalActive ? "active" : ""}`}></div>
+            <div id="overlay" onClick={() => setModalActive(false)} className={`${modalActive ? "active" : ""}`}></div>
         </Fragment>
     );
 }

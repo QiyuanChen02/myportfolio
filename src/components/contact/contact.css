@@ -11,7 +11,7 @@
     padding: 30px;
     background-color: white;
     opacity: 0;
-    transition: opacity 1.2s;
+    transition: opacity 1s;
     pointer-events: none;
     overflow-y: auto;
     border-radius: 15px;
@@ -97,7 +97,7 @@ form textarea {
     background-color: #000000;
     z-index: 5;
     pointer-events: none;
-    transition: opacity 1.2s;
+    transition: opacity 1s;
 }
 
 #overlay.active {
