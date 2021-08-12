@@ -5,13 +5,20 @@
 }
 
 .card {
+    position: relative;
     width: min(88vw, 960px);
     border-radius: 15px;
     display: flex;
     flex-direction: row;
-    margin-top: 60px;
+    margin-top: 10rem;
     box-shadow: 0 0 100px hsl(0, 0%, 0%, 0.3);
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+.card.appear {
+    opacity: 1;
 }
 
 .card-info {

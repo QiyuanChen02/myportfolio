@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./projects.css";
 
 // @ts-ignore
@@ -8,7 +8,7 @@ import Tilt from 'react-tilt';
 import collisionSim from "./images/collision-sim.png";
 import sendMeAThought from "./images/sendmeathought.png";
 
-import { linkTo } from "../../usefulFunctions";
+import { linkTo, getIntersectionObserver } from "../../usefulFunctions";
 
 const Projects: React.FC = () => {
     const tiltOptions = {
@@ -16,8 +16,35 @@ const Projects: React.FC = () => {
         speed: 500, 
         scale: 1.05
     }
+
+    const projectsRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const options = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -20% 0px"
+        };
+
+        const observer = getIntersectionObserver(options);
+
+        let allProjects: HTMLDivElement[];
+        if (projectsRef.current) {
+            const allProjects = projectsRef.current.querySelectorAll(".card");
+            allProjects.forEach(project => {
+                observer.observe(project);
+            });
+        }
+
+        return () => {
+            allProjects.forEach(project => {
+                observer.unobserve(project);
+            });
+        }
+
+    }, [projectsRef]);
+
     return (
-        <section className="projects" id="projects">
+        <section className="projects" id="projects" ref={projectsRef}>
             <h3>Projects</h3>
             <Tilt options={tiltOptions}>
                 <div className="card"> 

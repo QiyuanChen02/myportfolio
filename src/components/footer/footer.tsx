@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./footer.css";
 
-import { linkTo } from "../../usefulFunctions";
+import { linkTo, getIntersectionObserver } from "../../usefulFunctions";
 
 type Props = {
     setModalActive: (value: boolean) => void;
 }
 
 const Footer: React.FC<Props> = ({ setModalActive }) => {
+
+    const footerRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const footerElement = footerRef.current!;
+        const options = {
+            threshold: 0.5,
+            rootMargin: "0px 0px 0px 0px"
+        };
+
+        const observer = getIntersectionObserver(options);
+        observer.observe(footerElement);
+
+        return () => {
+            observer.unobserve(footerElement);
+        }
+
+    }, [footerRef]);
+
     return (
-        <footer id="footer">
+        <footer id="footer" ref={footerRef}>
             <h5>Interested in getting to know me?</h5>
             <button data-location="#contact" onClick={() => setModalActive(true)}>Contact</button>
             <div className="pageEnd">

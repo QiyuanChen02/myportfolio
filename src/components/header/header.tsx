@@ -44,7 +44,7 @@ const Header: React.FC<Props> = ({ setModalActive }) => {
             {/* Pointing chevron */}
             <div data-location="#projects" onClick={linkTo} className="chevron">
                 <svg viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
             </div>
         </header>

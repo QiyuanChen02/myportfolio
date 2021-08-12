@@ -40,7 +40,7 @@ svg:hover {
     filter: contrast(110%) grayscale(0%);
 }
 
-.icons .appear {
+.icons div.appear {
     opacity: 1;
     transform: translateY(0);
 }

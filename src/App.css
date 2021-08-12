@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
 :root {
+  --dark-background-colour: rgb(42, 27, 61);
   --light-text-color: hsl(0, 0%, 92%);
   --glowing-color: hsl(200, 66%, 70%);
   --accent-color: hsl(332, 66%, 55%);
@@ -17,10 +18,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.root {
-  margin-top: 0;
 }
 
 .app {

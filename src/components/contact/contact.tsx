@@ -28,7 +28,9 @@ const Contact: React.FC<Props> = ({ modalActive, setModalActive }) => {
                         <label htmlFor="message">Message *</label>
                         <textarea name="message" id="message" required />
                     </div>
-                    <button type="submit">Send</button>
+                    <div className="button-wrapper">
+                        <button type="submit">Send</button>
+                    </div>
                 </form>
             </section>
             <div id="overlay" className={`${modalActive ? "active" : ""}`}></div>

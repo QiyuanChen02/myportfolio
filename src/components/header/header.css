@@ -1,13 +1,21 @@
 header {
-    height: clamp(350px, 100vh, 650px);
+    height: clamp(500px, 100vh, 800px);
     color: var(--light-text-color);
     position: relative;
+}
+
+.chevron * {
+    pointer-events: none;
 }
 
 .chevron > svg {
     width: 5rem;
     height: 5rem;
     animation: move-chevron 2s linear infinite;
+}
+
+.chevron > svg path {
+    fill: var(--light-text-color);
 }
 
 .chevron {
@@ -19,24 +27,24 @@ header {
     width: 6rem;
     height: 6rem;
     border-radius: 3rem;
-    background-color: red;
+    background-color: hsla(0, 0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.chevron.moved {
+/* .chevron.moved {
     position: fixed;
     bottom: 3em;
     left: auto;
     right: 3em;
     transform: rotate(180deg);
-    animation: none;
+    background-color: var(--accent-color);
 }
 
 .chevron.moved svg {
     animation: none;
-}
+} */
 
 @keyframes move-chevron {
     0% {
@@ -68,7 +76,7 @@ h1, h2 {
 @keyframes animate-title {
     0% {
         opacity: 0;
-        color: rgba(42, 27, 61, 0.2);
+        color: var(--dark-background-colour);
     } 100% {
         opacity: 1;
         color: var(--light-text-color);
@@ -89,7 +97,7 @@ h1, h2 {
     align-items: center;
     justify-content: space-between;
     animation-delay: 2s;
-    margin: 3rem;
+    padding: 3rem;
 }
 
 nav ul {
@@ -103,7 +111,6 @@ nav li {
     list-style-type: none;
     cursor: pointer;
     font-size: 2rem;
-    /* transition: text-shadow 0.5s; */
 }
 
 nav li:hover {
@@ -149,7 +156,6 @@ h2 {
     color: var(--light-text-color);
     margin-top: 1rem;
     box-shadow: none;
-    /* transition: box-shadow 0.5s, text-shadow 0.5s; */
 }
 
 /* May still change to glowing */
@@ -163,7 +169,7 @@ h2 {
 /* Canvas styling */
 canvas {
     position: absolute;
-    top: -1em;
+    top: 0;
     left: 0;
     z-index: -1;
 }

@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import "./about.css";
 
+import { getIntersectionObserver } from "../../usefulFunctions";
+
 const Icons: React.FC = () => {
 
     const iconsRef = useRef<HTMLDivElement>(null);
@@ -11,16 +13,7 @@ const Icons: React.FC = () => {
             rootMargin: "0px 0px -10% 0px"
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add("appear");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
+        const observer = getIntersectionObserver(options);
 
         let allLogos: HTMLDivElement[];
         if (iconsRef.current) {
