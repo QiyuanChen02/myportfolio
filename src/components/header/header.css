@@ -1,6 +1,53 @@
 header {
     height: clamp(350px, 100vh, 650px);
     color: var(--light-text-color);
+    position: relative;
+}
+
+.chevron > svg {
+    width: 5rem;
+    height: 5rem;
+    animation: move-chevron 2s linear infinite;
+}
+
+.chevron {
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, -2rem);
+    bottom: 0;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chevron.moved {
+    position: fixed;
+    bottom: 3em;
+    left: auto;
+    right: 3em;
+    transform: rotate(180deg);
+    animation: none;
+}
+
+.chevron.moved svg {
+    animation: none;
+}
+
+@keyframes move-chevron {
+    0% {
+        transform: translateY(-0.5rem);
+    }
+    50% {
+        transform: translateY(0.5rem);
+    }
+    100% {
+        transform: translateY(-0.5rem);
+    }
 }
 
 /* All initial animations */
@@ -116,7 +163,7 @@ h2 {
 /* Canvas styling */
 canvas {
     position: absolute;
-    top: 0;
+    top: -1em;
     left: 0;
     z-index: -1;
 }

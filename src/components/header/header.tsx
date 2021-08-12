@@ -5,6 +5,8 @@ import Topbar from "./topbar";
 import Landing from "./landing";
 import Canvas from "./canvas";
 
+import { linkTo } from "../../usefulFunctions";
+
 type Props = {
     setModalActive: (value: boolean) => void;
 }
@@ -38,6 +40,13 @@ const Header: React.FC<Props> = ({ setModalActive }) => {
             <Topbar setModalActive={setModalActive}/>
             <Landing setModalActive={setModalActive}/>
             <Canvas width={headerSize[0]} height={headerSize[1]} />
+
+            {/* Pointing chevron */}
+            <div data-location="#projects" onClick={linkTo} className="chevron">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+            </div>
         </header>
     );
 }

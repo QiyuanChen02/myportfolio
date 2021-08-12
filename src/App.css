@@ -19,6 +19,10 @@
   box-sizing: border-box;
 }
 
+.root {
+  margin-top: 0;
+}
+
 .app {
   display: flex;
   flex-direction: column;
@@ -26,6 +30,10 @@
 
 section {
   padding-top: 16rem;
+}
+
+svg * {
+  pointer-events: none;
 }
 
 /* Style for all buttons */

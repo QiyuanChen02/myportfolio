@@ -36,10 +36,6 @@ footer svg {
     height: 5rem;
 }
 
-footer svg * {
-    pointer-events: none;
-}
-
 .pageEnd {
     display: flex;
     justify-content: space-between;

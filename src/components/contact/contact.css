@@ -10,12 +10,15 @@
     z-index: 10;
     padding: 20px;
     background-color: white;
-    display: none;
+    opacity: 0;
+    transition: opacity 1.2s;
+    pointer-events: none;
     overflow-y: auto;
 }
 
 .contact.active {
-    display: block;
+    pointer-events: all;
+    opacity: 1;
 }
 
 .close-modal {
@@ -78,6 +81,7 @@ form button {
     background-color: #000000;
     z-index: 5;
     pointer-events: none;
+    transition: opacity 1.2s;
 }
 
 #overlay.active {

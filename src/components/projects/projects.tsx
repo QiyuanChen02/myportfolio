@@ -36,7 +36,7 @@ const Projects: React.FC = () => {
             <Tilt options={tiltOptions}>
                 <div className="card reverse"> 
                     <div className="card-image">
-                        <img src={sendMeAThought} alt="Send me a thought" />
+                        <img className="yesmyqueen" src={sendMeAThought} alt="Send me a thought" />
                     </div>
                     <div className="card-info">
                         <h4>Send Me A Thought</h4>
