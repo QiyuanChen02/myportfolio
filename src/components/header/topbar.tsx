@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./header.css";
 
 import { linkTo, reloadPage } from "../../usefulFunctions"
 
-type Props = {
-    setModalActive: (value: boolean) => void;
-}
+import { ModalUpdateContext } from "../../App";
 
-const TopBar: React.FC<Props> = ({ setModalActive }) => {
+const TopBar: React.FC = () => {
+
+    const toggleModal = useContext(ModalUpdateContext);
+
     return (
         <div className="topbar">
             <div className="logo">
@@ -17,7 +18,7 @@ const TopBar: React.FC<Props> = ({ setModalActive }) => {
                 <ul>
                     <li data-location="#projects" onClick={linkTo} tabIndex={0}>Projects</li>
                     <li data-location="#about" onClick={linkTo} tabIndex={0}>About Me</li>
-                    <li onClick={() => setModalActive(true)} tabIndex={0}>Contact</li>
+                    <li onClick={toggleModal} tabIndex={0}>Contact</li>
                 </ul>
             </nav>
         </div>

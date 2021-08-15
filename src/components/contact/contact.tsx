@@ -1,17 +1,18 @@
-import React, { Fragment } from "react";
+import React, { useContext, Fragment } from "react";
 import "./contact.css";
 
-type Props = {
-    modalActive: boolean;
-    setModalActive: (value: boolean) => void;
-}
+import { ModalContext, ModalUpdateContext } from "../../App";
 
-const Contact: React.FC<Props> = ({ modalActive, setModalActive }) => {
+
+const Contact: React.FC = () => {
+
+    const modalActive = useContext(ModalContext);
+    const toggleModal = useContext(ModalUpdateContext);
 
     return (
         <Fragment>
             <section className={`contact ${modalActive ? "active" : ""}`} id="contact">
-                <button className="close-modal" onClick={() => setModalActive(false)}>&times;</button>
+                <button className="close-modal" onClick={toggleModal}>&times;</button>
                 <div className="form-header">
                     <h3>Let's Talk</h3>
                 </div>
@@ -34,7 +35,7 @@ const Contact: React.FC<Props> = ({ modalActive, setModalActive }) => {
                     </div>
                 </form>
             </section>
-            <div id="overlay" onClick={() => setModalActive(false)} className={`${modalActive ? "active" : ""}`}></div>
+            <div id="overlay" onClick={toggleModal} className={`${modalActive ? "active" : ""}`}></div>
         </Fragment>
     );
 }

@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "./footer.css";
 
 import { linkTo, getIntersectionObserver } from "../../usefulFunctions";
 
-type Props = {
-    setModalActive: (value: boolean) => void;
-}
+import { ModalUpdateContext } from "../../App";
 
-const Footer: React.FC<Props> = ({ setModalActive }) => {
+const Footer: React.FC = () => {
 
+    const toggleModal = useContext(ModalUpdateContext);
     const footerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -30,7 +29,7 @@ const Footer: React.FC<Props> = ({ setModalActive }) => {
     return (
         <footer id="footer" ref={footerRef}>
             <h5>Interested in getting to know me?</h5>
-            <button data-location="#contact" onClick={() => setModalActive(true)}>Contact</button>
+            <button data-location="#contact" onClick={toggleModal}>Contact</button>
             <div className="pageEnd">
                 <p>&copy;QChen 2021</p>
                 <div className="socials">

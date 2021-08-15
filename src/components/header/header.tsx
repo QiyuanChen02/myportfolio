@@ -7,11 +7,7 @@ import Canvas from "./canvas";
 
 import { linkTo } from "../../usefulFunctions";
 
-type Props = {
-    setModalActive: (value: boolean) => void;
-}
-
-const Header: React.FC<Props> = ({ setModalActive }) => {
+const Header: React.FC = () => {
 
     //Gets the size of the div
     const [headerSize, setHeaderSize] = useState<number[]>([]);
@@ -35,10 +31,15 @@ const Header: React.FC<Props> = ({ setModalActive }) => {
         }
     }, []);
 
+    //Prints secret info about the page
+    useEffect(() => {
+        console.log("Psst...Hey fellow developer looking through my code, there's a secret place you can chat with me, at http://twitch.tv/failtowinbot ;)");
+    }, [])
+
     return (
         <header ref={header} id="header">
-            <Topbar setModalActive={setModalActive}/>
-            <Landing setModalActive={setModalActive}/>
+            <Topbar />
+            <Landing />
             <Canvas width={headerSize[0]} height={headerSize[1]} />
 
             {/* Pointing chevron */}

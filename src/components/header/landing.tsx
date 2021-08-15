@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./header.css";
 
-type Props = {
-    setModalActive: (value: boolean) => void;
-}
+import { ModalUpdateContext } from "../../App";
 
-const TopBar: React.FC<Props> = ({ setModalActive }) => {
+const TopBar: React.FC = () => {
 
+    const toggleModal = useContext(ModalUpdateContext);
     return (
         <div className="landing">
             <h1>Qiyuan Chen</h1>
             <h2>Future Web Dev</h2>
-            <button onClick={() => setModalActive(true)}>Let's Talk!</button>
+            <button onClick={toggleModal}>Let's Talk!</button>
         </div>
     )
 }

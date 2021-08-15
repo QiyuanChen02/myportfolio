@@ -7,17 +7,28 @@ import About from "./components/about/about";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 
+export const ModalContext = React.createContext(false);
+export const ModalUpdateContext = React.createContext(() => {});
+
 function App() {
 
   const [modalActive, setModalActive] = useState<boolean>(false);
 
+  const toggleModal = () => {
+    setModalActive(modalActive => !modalActive);
+  }
+
   return (
     <div className="App">
-      <Header setModalActive={setModalActive}/>
-      <Projects />
-      <About />
-      <Footer setModalActive={setModalActive}/>
-      <Contact modalActive={modalActive} setModalActive={setModalActive}/>
+      <ModalContext.Provider value={modalActive}>
+        <ModalUpdateContext.Provider value={toggleModal}>
+          <Header />
+          <Projects />
+          <About />
+          <Footer />
+          <Contact />
+        </ModalUpdateContext.Provider>
+      </ModalContext.Provider>
     </div>
   );
 }
