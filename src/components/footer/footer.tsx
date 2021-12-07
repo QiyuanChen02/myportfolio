@@ -3,11 +3,11 @@ import "./footer.css";
 
 import { linkTo, getIntersectionObserver } from "../../usefulFunctions";
 
-import { ModalUpdateContext } from "../../App";
+import { useModalUpdate } from "../../ModalContext";
 
 const Footer: React.FC = () => {
 
-    const toggleModal = useContext(ModalUpdateContext);
+    const toggleModal = useModalUpdate();
     const footerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {

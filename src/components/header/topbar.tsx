@@ -3,11 +3,11 @@ import "./header.css";
 
 import { linkTo, reloadPage } from "../../usefulFunctions"
 
-import { ModalUpdateContext } from "../../App";
+import { useModalUpdate } from "../../ModalContext";
 
 const TopBar: React.FC = () => {
 
-    const toggleModal = useContext(ModalUpdateContext);
+    const toggleModal = useModalUpdate();
 
     return (
         <div className="topbar">

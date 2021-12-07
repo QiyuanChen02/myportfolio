@@ -1,16 +1,16 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import "./contact.css";
 
-import { ModalContext, ModalUpdateContext } from "../../App";
+import { useModal, useModalUpdate } from "../../ModalContext";
 
 
 const Contact: React.FC = () => {
 
-    const modalActive = useContext(ModalContext);
-    const toggleModal = useContext(ModalUpdateContext);
+    const modalActive = useModal();
+    const toggleModal = useModalUpdate();
 
     return (
-        <Fragment>
+        <>
             <section className={`contact ${modalActive ? "active" : ""}`} id="contact">
                 <button className="close-modal" onClick={toggleModal}>&times;</button>
                 <div className="form-header">
@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
                 </form>
             </section>
             <div id="overlay" onClick={toggleModal} className={`${modalActive ? "active" : ""}`}></div>
-        </Fragment>
+        </>
     );
 }
 

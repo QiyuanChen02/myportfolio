@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "./header.css";
 
-import { ModalUpdateContext } from "../../App";
+import { useModalUpdate } from "../../ModalContext";
 
 const TopBar: React.FC = () => {
 
-    const toggleModal = useContext(ModalUpdateContext);
+    const toggleModal = useModalUpdate();
     return (
         <div className="landing">
             <h1>Qiyuan Chen</h1>
